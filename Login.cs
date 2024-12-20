@@ -1,5 +1,7 @@
-﻿using System.Data.SqlClient;
+﻿using KinoRudnev;
+using System.Data.SqlClient;
 using System.Text;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Kinoteatr
 {
@@ -11,6 +13,7 @@ namespace Kinoteatr
         private Label titleLabel, usernameLabel, passwordLabel;
         private Button decorativeLine, loginButton;
         private Panel gridPanel;
+        int rowsCount; int placesCount; string date; string filmName;
 
         public Login()
         {
@@ -166,9 +169,9 @@ namespace Kinoteatr
                             adminForm.Show();
                         }
                         else
-                        {
-                            MainForm mainForm = new MainForm();
-                            mainForm.Show();
+                        { 
+                            Kino kinoForm = new Kino(rowsCount, placesCount, date, filmName);
+                            kinoForm.Show();
                         }
                     }
                     else
